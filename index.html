@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Amas?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Me Amas? 💖</h1>
+    <button onclick="alert('¡Yo también te amo! 💕')">Sí</button>
+    <button id="noBtn">No</button>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        noBtn.addEventListener('mouseover', function() {
+            noBtn.style.position = "absolute";
+            noBtn.style.left = Math.random() * window.innerWidth + "px";
+            noBtn.style.top = Math.random() * window.innerHeight + "px";
+        });
+    </script>
+</body>
+</html>
