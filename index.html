@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Me Amas? 💖</title>
     <style>
-        /* Fuente personalizada */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
         body {
@@ -20,7 +19,7 @@
             background: linear-gradient(to top right, #ff7eb9, #ff65a3, #ff1493);
             overflow: hidden;
         }
-        
+
         h1 {
             font-size: 40px;
             color: white;
@@ -28,11 +27,12 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1.5s ease-in-out;
         }
-        
+
         .buttons {
             display: flex;
             gap: 30px;
             justify-content: center;
+            position: relative;
             animation: slideIn 1s ease-in-out;
         }
 
@@ -62,7 +62,7 @@
         .no-btn {
             background-color: #ddd;
             color: black;
-            position: relative;
+            position: absolute;
         }
 
         .no-btn:hover {
@@ -98,6 +98,14 @@
             50% { transform: scale(1.3); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        @keyframes moveNoBtn {
+            0% { left: 0; top: 0; }
+            25% { left: 20px; top: -40px; }
+            50% { left: -30px; top: 30px; }
+            75% { left: 40px; top: 10px; }
+            100% { left: 0; top: 0; }
+        }
     </style>
 </head>
 <body>
@@ -106,7 +114,7 @@
         <h1>¿Me Amas? 💖</h1>
         <div class="buttons">
             <button class="yes-btn" onclick="showLove()">Sí</button>
-            <button class="no-btn" id="noBtn">No</button>
+            <button class="no-btn" id="noBtn" onmouseover="moveNoButton()">No</button>
         </div>
         <div id="loveMessage" class="hidden">
             <h1 class="heart-animation">💖 ¡Yo también te amo! 💖</h1>
@@ -118,11 +126,12 @@
         const loveMessage = document.getElementById('loveMessage');
 
         noBtn.addEventListener('mouseover', function() {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 100);
-            noBtn.style.left = `${x}px`;
-            noBtn.style.top = `${y}px`;
+            moveNoButton();
         });
+
+        function moveNoButton() {
+            noBtn.style.animation = "moveNoBtn 1s ease-in-out infinite";
+        }
 
         function showLove() {
             document.querySelector('.buttons').classList.add('hidden');
@@ -132,4 +141,3 @@
 
 </body>
 </html>
-
