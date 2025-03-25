@@ -5,52 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Me Amas? 💖</title>
     <style>
+        /* Fuente personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            margin: 50px;
-            background-color: #ffebf0;
-        }
-        h1 {
-            font-size: 40px;
-            color: #d63384;
-            margin-bottom: 20px;
-        }
-        .buttons {
-            position: relative;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            background: linear-gradient(to top right, #ff7eb9, #ff65a3, #ff1493);
+            overflow: hidden;
         }
+        
+        h1 {
+            font-size: 40px;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
         button {
-            font-size: 20px;
-            padding: 15px 25px;
+            font-size: 18px;
+            padding: 15px 30px;
             border: none;
             cursor: pointer;
-            border-radius: 10px;
-            transition: transform 0.2s ease-in-out;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+            display: inline-block;
+            min-width: 120px;
         }
+
         .yes-btn {
             background-color: #ff69b4;
             color: white;
         }
+
         .yes-btn:hover {
             background-color: #ff1493;
             transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
+
         .no-btn {
-            background-color: #ccc;
+            background-color: #ddd;
             color: black;
-            position: absolute;
+            position: relative;
         }
+
+        .no-btn:hover {
+            background-color: #ff1493;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
         .hidden {
             display: none;
         }
+
         .heart-animation {
-            font-size: 50px;
-            opacity: 0;
+            font-size: 60px;
             animation: pop 0.5s ease-in-out forwards;
+            color: #ff1493;
+            font-weight: bold;
         }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
         @keyframes pop {
             0% { transform: scale(0.5); opacity: 0; }
             50% { transform: scale(1.3); opacity: 1; }
@@ -60,14 +102,15 @@
 </head>
 <body>
 
-    <h1>¿Me Amas? 💖</h1>
-    <div class="buttons">
-        <button class="yes-btn" onclick="showLove()">Sí</button>
-        <button class="no-btn" id="noBtn">No</button>
-    </div>
-
-    <div id="loveMessage" class="hidden">
-        <h1 class="heart-animation">💖 ¡Yo también te amo! 💖</h1>
+    <div>
+        <h1>¿Me Amas? 💖</h1>
+        <div class="buttons">
+            <button class="yes-btn" onclick="showLove()">Sí</button>
+            <button class="no-btn" id="noBtn">No</button>
+        </div>
+        <div id="loveMessage" class="hidden">
+            <h1 class="heart-animation">💖 ¡Yo también te amo! 💖</h1>
+        </div>
     </div>
 
     <script>
@@ -89,3 +132,4 @@
 
 </body>
 </html>
+
